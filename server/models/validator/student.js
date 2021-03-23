@@ -2,7 +2,7 @@ import joi from 'joi';
 
 var schema = joi.object().keys({
     name: joi.string().min(2).required(),
-    email: joi.email().required(),
+    email: joi.string().email().required(),
     phone: joi.number().required(),
     dateofbirth: joi.string()
 

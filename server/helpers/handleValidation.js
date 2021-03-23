@@ -1,4 +1,4 @@
-import { BadRequest } from '../utils'
+import { BadRequest } from '../utils/error'
 export const handleValidation = (validate) => {
     return (req, res, next) => {
         const result = validate(req.body)

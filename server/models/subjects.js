@@ -11,5 +11,5 @@ const SubjectsSchema = mongoose.Schema({
 
     },
 }, { timestamps: true })
-const Subjects = mongoose.model('Student', SubjectsSchema)
+const Subjects = mongoose.model('Subject', SubjectsSchema)
 export default Subjects

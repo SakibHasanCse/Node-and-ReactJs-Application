@@ -21,5 +21,5 @@ const StudentSchema = mongoose.Schema({
     }
 
 }, { timestamps: true })
-const Student = mongoose.model('Student', StudentSchema)
-export default Student
+const student = mongoose.model('Student', StudentSchema)
+export default student
