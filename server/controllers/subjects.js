@@ -1,22 +1,19 @@
 import Subject from '../models/subjects'
-import { validationResult } from 'express-validator'
 
 
 export const createSubject = async(req, res, next) => {
     try {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-            return res.json({ error: errors.array() })
-        }
 
         const newSubject = new Subject(req.body)
         await newSubject.save((err, data) => {
-            if (err) {} else {
+            if (err) {
+                return res.json({ error: 'Somthing went wrong' })
+            } else {
                 return res.status(201).json(data)
             }
         })
     } catch (error) {
-        return next(error)
+        return next(error, req, res, next)
     }
 
 
@@ -27,6 +24,7 @@ export const Subjectlist = async(req, res, next) => {
             .populate('student')
             .exec((err, data) => {
                 if (err) {
+                    return res.json({ error: 'Somthing went wrong' })
 
                 } else {
                     return res.status(200).json(data)
@@ -34,7 +32,7 @@ export const Subjectlist = async(req, res, next) => {
             })
 
     } catch (error) {
-        return next(error)
+        return next(error, req, res, next)
     }
 
 }

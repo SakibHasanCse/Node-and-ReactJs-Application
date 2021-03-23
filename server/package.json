@@ -4,8 +4,8 @@
     "description": "Interview Task application",
     "main": "app.js",
     "scripts": {
-        "start": "node app.js",
-        "dev": "nodemon app.js",
+        "start": "node -r esm app.js",
+        "dev": "nodemon -r esm app.js",
         "test": "npm test"
     },
     "repository": {

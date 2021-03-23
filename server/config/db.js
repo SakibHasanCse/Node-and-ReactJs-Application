@@ -8,4 +8,5 @@ export const ConnectDatabase = (url) => {
             console.log('Database connection faild')
             console.log('Database connection faild', err)
         })
+    mongoose.set('useFindAndModify', false)
 }
