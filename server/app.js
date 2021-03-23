@@ -5,14 +5,19 @@ import path from 'path'
 import { ConnectDatabase } from './config/db'
 
 import morgan from 'morgan'
-import env from 'env'
+import dotenv from 'dotenv'
 
-app.use(morgan('dev'))
+if (process.env.NODE_ENV !== 'production') {
+    app.use(morgan('dev'))
+    dotenv.config({ path: './config/config.env' })
 
+}
 
 
 const url = process.env.MONGO_DB_URL
 ConnectDatabase(url)
+
+
 
 const Routers = fs.readdirSync(path.join(__dirname, 'routers'))
 Routers.forEach((route) => {
