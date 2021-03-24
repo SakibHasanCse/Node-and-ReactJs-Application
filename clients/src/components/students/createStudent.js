@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { createStudent } from '../../actions/student'
+import { createStudent } from '../../actions/api'
 const Student = () => {
     var [values, setValues] = useState({
         name: '', email: '', phone: '', Dateofbirth: '', success: '', error: '', loadding: false,

@@ -5,6 +5,6 @@ import { handleValidation } from '../helpers/handleValidation'
 import Subject from '../models/validator/subject'
 
 router.post('/subject', handleValidation(Subject), createSubject)
-router.get('/subjects', Subjectlist)
+router.get('/subject/:id', Subjectlist)
 
 export default router
