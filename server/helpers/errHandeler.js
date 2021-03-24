@@ -4,6 +4,7 @@ export const handleError = (err, req, res, next) => {
     if (err instanceof GeneralError) {
         code = err.getCode()
     }
+    console.log('err', err)
     if (code === 500) {
         return res.status(code).json({ error: err.message })
     }

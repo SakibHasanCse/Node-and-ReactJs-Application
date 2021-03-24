@@ -9,6 +9,7 @@ import bodyParser from 'body-parser'
 import { ConnectDatabase } from './config/db'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
+import { handleError } from './helpers/errHandeler'
 
 
 
@@ -33,7 +34,7 @@ Routers.forEach((route) => {
     app.use('/api', require(`./routers/${route}`).default)
 })
 
-
+app.use(handleError)
 app.all('*', (req, res) => {
     return res.json({ error: 'Page not found ' })
 })

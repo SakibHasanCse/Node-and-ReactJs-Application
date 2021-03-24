@@ -9,6 +9,7 @@ export const handleValidation = (validate) => {
         const { details } = result.error
         const messages = details.map(msg => msg.message)
         var msg = messages.join(',')
+
         throw new BadRequest(msg)
 
 

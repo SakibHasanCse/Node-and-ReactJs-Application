@@ -4,7 +4,7 @@ var schema = joi.object().keys({
     name: joi.string().min(2).required(),
     email: joi.string().email().required(),
     phone: joi.number().required(),
-    dateofbirth: joi.string()
+    Dateofbirth: joi.string()
 
 })
 var validation = (data) => {
