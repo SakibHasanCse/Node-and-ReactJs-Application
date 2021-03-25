@@ -1,12 +1,12 @@
 import axios from 'axios'
-import { API } from '../config/config'
+var { REACT_APP_API_URL } = process.env
 
 
 
 export const getAllStudent = () => {
     return axios({
             method: 'GET',
-            url: `${API}/students`
+            url: `${REACT_APP_API_URL}/students`
         })
         .then((response) => {
             return response.data;
@@ -17,7 +17,7 @@ export const getAllStudent = () => {
 export const createStudent = (form) => {
     return axios({
             method: 'POST',
-            url: `${API}/student`,
+            url: `${REACT_APP_API_URL}/student`,
             data: form
         })
         .then((response) => {
@@ -30,7 +30,7 @@ export const createStudent = (form) => {
 export const getSubject = (id) => {
     return axios({
             method: 'GET',
-            url: `${API}/subject/${id}`
+            url: `${REACT_APP_API_URL}/subject/${id}`
         })
         .then((response) => {
             return response.data;
@@ -41,8 +41,20 @@ export const getSubject = (id) => {
 export const CreateSubject = (form) => {
     return axios({
             method: 'POST',
-            url: `${API}/subject`,
+            url: `${REACT_APP_API_URL}/subject`,
             data: form
+        })
+        .then((response) => {
+            return response.data;
+        }).catch((error) => {
+            return error.response.data
+        })
+}
+
+export const getallSubjects = () => {
+    return axios({
+            method: 'GET',
+            url: `${REACT_APP_API_URL}/subjects`
         })
         .then((response) => {
             return response.data;

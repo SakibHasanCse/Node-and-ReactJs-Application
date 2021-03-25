@@ -19,9 +19,19 @@ export const createStudent = async(req, res, next) => {
 
 
 }
+
+
 export const Studentlist = async(req, res, next) => {
     try {
-        await Student.find()
+        await Student.aggregate([{
+                $lookup: {
+                    from: 'subjects',
+
+                    localField: "_id",
+                    foreignField: "student",
+                    as: 'Books'
+                }
+            }])
             .exec((err, data) => {
                 if (err) {
                     return next(err, req, res, next)
@@ -29,9 +39,8 @@ export const Studentlist = async(req, res, next) => {
                     return res.status(200).json(data)
                 }
             })
-
     } catch (error) {
-        return next(err, req, res, next)
+        return next(error, req, res, next)
     }
 
 }

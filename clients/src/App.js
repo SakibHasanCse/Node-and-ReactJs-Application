@@ -8,7 +8,7 @@ import StudentCreate from './components/students/createStudent'
 
 import SubjectCreate from './components/subjects/createSubject'
 
-
+console.log(process.env.API)
 function App() {
   return (
     <div className="App">
@@ -17,7 +17,9 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/create" exact component={StudentCreate} />
+
           <Route path="/subject/:id" exact component={SubjectCreate} />
+
 
         </Switch>
       </Router>

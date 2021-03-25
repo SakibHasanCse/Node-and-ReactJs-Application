@@ -5,10 +5,8 @@ import { useParams, withRouter } from 'react-router-dom'
 const Subject = () => {
 
     var { id } = useParams()
-
     var [values, setValues] = useState({ error: '', success: '', name: '' })
     var [subject, setSubject] = useState([])
-
     const { name, error, success } = values
 
 
@@ -27,6 +25,7 @@ const Subject = () => {
                 }
             })
     }
+
     const handleChange = name => e => {
         setValues({ ...values, [name]: e.target.value, error: '', success: '' })
 
@@ -47,10 +46,11 @@ const Subject = () => {
             })
     }
 
+    var subjectName = subject[0];
     const showBooks = () => {
-        return (subject && subject.map((book, i) => {
+        return (subjectName && subjectName.subjects.map((book, i) => {
             return (
-                <li key={i} class="list-group-item">{book.name}</li>
+                <li key={i} className="list-group-item">{book.name}</li>
             )
         }))
 
@@ -80,6 +80,8 @@ const Subject = () => {
             </div>
         )
     }
+
+
     return (
         <div className="container">
             <div className="pt-4">
@@ -89,7 +91,7 @@ const Subject = () => {
             <div className="row">
                 <div className="col-md-6">
                     <ul className="list-group">
-                        <li className="list-group-item active" aria-current="true">Books List</li>
+                        <li className="list-group-item active" aria-current="true">{`${subjectName && subjectName.name}'s Books `}</li>
                         {showBooks()}
                     </ul>
                 </div>
@@ -103,4 +105,4 @@ const Subject = () => {
 
     )
 }
-export default withRouter(Subject)
+export default Subject

@@ -55,7 +55,7 @@ const Student = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Date of birth</label>
-                        <input type="text" value={Dateofbirth} onChange={handleChange('Dateofbirth')} className="form-control" />
+                        <input type="date" value={Dateofbirth} onChange={handleChange('Dateofbirth')} className="form-control" />
                     </div>
                     <button className="btn btn-info">Add New</button>
                 </form>

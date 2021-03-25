@@ -1,10 +1,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getAllStudent } from '../actions/api'
+import { getAllStudent, getSubject } from '../actions/api'
 const Home = () => {
     const [value, setValue] = useState([])
     const [values, setValues] = useState({ loadding: false, error: '' })
+    var [subject, setSubject] = useState([])
     const { loadding, error } = values
 
 
@@ -25,6 +26,7 @@ const Home = () => {
             })
     }
 
+
     useState(() => {
         getStudents()
     }, [])
@@ -37,9 +39,9 @@ const Home = () => {
                     <td>{data.email}</td>
                     <td>{data.phone}</td>
                     <td>{data.Dateofbirth}</td>
-                    <td>Bangla, English</td>
+                    <td>{data.Books && data.Books.map((book, i) => (<span key={i}>{book.name} </span>))}</td>
                     <td>
-                        <Link to={`/subject/${data._id}`} className="btn btn-sm btn-info">Add Book</Link>
+                        <Link to={`/subject/${data._id}`} className="btn btn-sm btn-info">Book</Link>
                     </td>
 
                 </tr >
@@ -86,7 +88,10 @@ const Home = () => {
         <div className="container pt-4">
             {LoaddingMessage()}
             {ErrorMessage()}
-            {showAllStudent()}
+            <div className="pt-2">
+                <h4 className="text-center text-muted pb-3">Students List</h4>
+                {showAllStudent()}
+            </div>
         </div>
 
     )
