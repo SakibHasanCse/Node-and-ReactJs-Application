@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CreateSubject, getSubject } from '../../actions/api'
+import { CreateSubject, getSubject } from '../API/api'
 import { useParams, withRouter } from 'react-router-dom'
 
 const Subject = () => {

@@ -8,7 +8,7 @@ NodeJs & React  - School-application
 This is a basic API skeleton written in JavaScript ES6. Very useful to building a RESTful web APIs 
 
 
-This project will run on **NodeJs** using **MongoDB** as database. I had tried to maintain the code structure easy as any beginner can also adopt the flow and start building an API. Project is open for suggestions, Bug reports and pull requests.
+This project will run on **NodeJs** using **MongoDB** as database and ReactJs. I had tried to maintain the code structure easy 
 ]
 ## Features
 
@@ -16,7 +16,9 @@ This project will run on **NodeJs** using **MongoDB** as database. I had tried t
 -   Pre-defined response structures with proper status codes.
 -   Included CORS.
 -    **School** example with **CRUD** operations.
--   Included API collection for Postman. [LINK](https://documenter.getpostman.com/view/10778944/TW6tKUv9)
+-   Included API collection for Postman.
+-   Included Add Student.
+-   Included Add Books.
 -   Light-weight project.
 -   Test cases with [Mocha](https://mochajs.org/) and [Jest](https://www.jestjs.com/).
 
@@ -24,7 +26,7 @@ This project will run on **NodeJs** using **MongoDB** as database. I had tried t
 ## Software Requirements
 
 -   Node.js **15+**
-- React.js **
+-   React.js **
 
 
 ## How to install
@@ -46,6 +48,11 @@ git clone https://github.com/SakibHasanCse/School-application.git ./myproject
 
 ```bash
 cd myproject
+
+cd server
+npm install || yarn add
+
+cd clients
 npm install || yarn add
 
 ```
@@ -60,7 +67,12 @@ npm install || yarn add
 ### Running  API server locally
 
 ```bash
+
+cd server
 npm run dev
+
+cd clients
+npm run start
 ```
 
 You will know server is running by checking the output of the command `npm run dev`

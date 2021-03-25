@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from "jquery";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home'
-import StudentCreate from './components/students/createStudent'
+import StudentCreate from './components/CreateStudent'
 
-import SubjectCreate from './components/subjects/createSubject'
+import SubjectCreate from './components/CreateSubject'
 
 console.log(process.env.API)
 function App() {

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getAllStudent, getSubject } from '../actions/api'
+import { getAllStudent, getSubject } from '../API/api'
 const Home = () => {
     const [value, setValue] = useState([])
     const [values, setValues] = useState({ loadding: false, error: '' })
